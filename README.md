@@ -45,10 +45,13 @@ Die Anbindung erfolgt Service-spezifisch mit dem Auslesen der Service-Konfigurat
 }
 ```
 
+Beispiel-Code für die Anbindung:
+
 ```
 // MONGODB
-var mongoDBServiceConfig = appEnv.getService("MongoChatDB");
+// Default-Wert für lokal
 var mongoDBUrl = 'mongodb://localhost:27017/MongoChatDB';
+var mongoDBServiceConfig = appEnv.getService("MongoChatDB");
 if (mongoDBServiceConfig) {
     mongoDBUrl = mongoDBServiceConfig.credentials.uri;
 }
