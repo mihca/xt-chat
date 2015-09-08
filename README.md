@@ -8,12 +8,14 @@ http://nodecode.de/chat-nodejs-websocket
 1. package.json muss vorhanden sein
 
 2. Environment
-Port aus Environment lesen: app.listen(process.env.VCAP_APP_PORT || 3000);
+Port aus Environment lesen: `app.listen(process.env.VCAP_APP_PORT || 3000);`
 oder
 https://www.npmjs.com/package/cfenv
 
 3. Push
-cf push node-chat -b https://github.com/cloudfoundry/nodejs-buildpack -c "node server.js"
+```
+cf push xt-chat -b https://github.com/cloudfoundry/nodejs-buildpack -c "node server.js"
+```
 oder
 cf push mit manifest.yml:
 ```
