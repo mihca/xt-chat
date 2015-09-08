@@ -39,7 +39,9 @@ Die Anbindung erfolgt Service-spezifisch mit dem Auslesen der Service-Konfigurat
   "label":"mongolab",
   "tags":["Data Store","document","mongodb"],
   "plan":"sandbox",
-  "credentials":{"uri":"mongodb://CloudFoundry_fkq80msb_pnts21qe_1e4tkslk:Uj2kdkHYHDTYo3P6m3QE6W61iEk6PKsl@ds035683.mongolab.com:35683/CloudFoundry_fkq80msb_pnts21qe"}
+  "credentials":{
+    "uri":"mongodb://CloudFoundry_fkq80msb_pnts21qe_1e4tkslk:Uj2kdkHYHDTYo3P6m3QE6W61iEk6PKsl@ds035683.mongolab.com:35683/CloudFoundry_fkq80msb_pnts21qe"
+  }
 }
 ```
 
