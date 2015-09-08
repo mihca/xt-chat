@@ -4,6 +4,8 @@
 	"author": "NodeCode.de",
 	"dependencies" : {
 		"express": "3.x",
-		"socket.io": "*"
+		"socket.io": "*",
+	  	"cfenv": "*",
+        "mongodb": "~2.0"
 	}
 }
