@@ -1,8 +1,9 @@
 Dies ist ein einfacher, auf Node.js basierender Beispiel-Chat.
+
+Die Codebasis stammt von:
 http://nodecode.de/chat-nodejs-websocket
 
-Voraussetzung für Deployment auf CloudFoundry:
-==============================================
+#Voraussetzung für Deployment auf CloudFoundry
 
 1. package.json muss vorhanden sein
 
@@ -15,6 +16,7 @@ https://www.npmjs.com/package/cfenv
 cf push node-chat -b https://github.com/cloudfoundry/nodejs-buildpack -c "node server.js"
 oder
 cf push mit manifest.yml:
+```
 ---
 applications:
 - name: xt-chat
@@ -23,7 +25,8 @@ applications:
   domain: cfapps.io
   command: node server.js
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+```
 
-Services anbinden:
-==================
+#Services anbinden
+
 
