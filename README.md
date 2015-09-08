@@ -31,4 +31,29 @@ applications:
 
 #Services anbinden
 
+Die Anbindung erfolgt Service-spezifisch mit dem Auslesen der Service-Konfiguration aus dem Environment. `appEnv.getService("MongoChatDB")` liefert:
+
+```
+{
+  "name":"MongoChatDB",
+  "label":"mongolab",
+  "tags":["Data Store","document","mongodb"],
+  "plan":"sandbox",
+  "credentials":{"uri":"mongodb://CloudFoundry_fkq80msb_pnts21qe_1e4tkslk:Uj2kdkHYHDTYo3P6m3QE6W61iEk6PKsl@ds035683.mongolab.com:35683/CloudFoundry_fkq80msb_pnts21qe"}
+}
+```
+
+```
+// MONGODB
+var mongoDBServiceConfig = appEnv.getService("MongoChatDB");
+var mongoDBUrl = 'mongodb://localhost:27017/MongoChatDB';
+if (mongoDBServiceConfig) {
+    mongoDBUrl = mongoDBServiceConfig.credentials.uri;
+}
+MongoClient.connect(mongoDBUrl, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected correctly to MongoDB server at " + mongoDBUrl);
+    db.close();
+});
+```
 

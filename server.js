@@ -16,10 +16,15 @@ server.listen(appEnv.port, appEnv.bind, function() {
 
 // MONGODB
 var mongoDBServiceConfig = appEnv.getService("MongoChatDB");
-var mongoDBUrl = 'mongodb://localhost:27017/MongoChatDB';
+console.log("mongoDBServiceConfig: " + JSON.stringify(mongoDBServiceConfig));
+var mongoDBUrl = '';
 if (mongoDBServiceConfig) {
     mongoDBUrl = mongoDBServiceConfig.credentials.uri;
+} else {
+    // Lokal
+    mongoDBUrl = 'mongodb://localhost:27017/MongoChatDB';
 }
+
 MongoClient.connect(mongoDBUrl, function(err, db) {
     assert.equal(null, err);
     console.log("Connected correctly to MongoDB server at " + mongoDBUrl);
