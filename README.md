@@ -17,9 +17,9 @@ oder
 cf push mit manifest.yml:
 ---
 applications:
-- name: node-chat
+- name: xt-chat
   memory: 256M
-  host: node-chat
+  host: xt-chat
   domain: cfapps.io
   command: node server.js
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack

@@ -37,6 +37,18 @@ app.get('/', function (req, res) {
 	res.sendfile(__dirname + '/public/index.html');
 });
 
+// wenn der Pfad /clear aufgerufen wird
+app.post('/clear', function (req, res) {
+    // Chat löschen
+    MongoClient.connect(mongoDBUrl, function(err, db) {
+        assert.equal(null, err);
+        console.log("Clear chat");
+        db.collection('chat').drop();
+        db.close();
+        res.status(200).send('OK');
+    });
+});
+
 // Websocket
 io.sockets.on('connection', function (socket) {
 
