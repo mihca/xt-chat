@@ -6,15 +6,12 @@ $(document).ready(function(){
 	// neue Nachricht
 	socket.on('chat', function (data) {
 		var zeit = new Date(data.zeit);
+		var timestamp = ((zeit.getDate() < 10 ? '0' + zeit.getDate() : zeit.getDate()) + "." + ((zeit.getMonth()+1) < 10 ? '0' + (zeit.getMonth()+1) : (zeit.getMonth()+1)) + "." + zeit.getFullYear() + " " + (zeit.getHours() < 10 ? '0' + zeit.getHours() : zeit.getHours()) + ':' + (zeit.getMinutes() < 10 ? '0' + zeit.getMinutes() : zeit.getMinutes()));
+		console.log(timestamp);
 		$('#content').append(
 			$('<li></li>').append(
 				// Uhrzeit
-				$('<span>').text('[' +
-					(zeit.getHours() < 10 ? '0' + zeit.getHours() : zeit.getHours())
-					+ ':' +
-					(zeit.getMinutes() < 10 ? '0' + zeit.getMinutes() : zeit.getMinutes())
-					+ '] '
-				),
+				$('<span>').text('[' + timestamp + '] '),
 				// Name
 				$('<b>').text(typeof(data.name) != 'undefined' ? data.name + ': ' : ''),
 				// Text
